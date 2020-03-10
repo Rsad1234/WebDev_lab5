@@ -1,16 +1,17 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
 var DAO = require('./model/nedb');
 var dbFile = 'database.nedb.db';
 var mustache = require('mustache-express'), path = require('path');
 
-app.use(express.json());
+
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 app.set('views', path.resolve(__dirname, 'mustache'));
 app.set('port', process.env.PORT || 3000);
 let dao = new DAO(dbFile);
+app.use(express.urlencoded());
+app.use(express.json());
 
 //Landing Page
 app.get("/", function (request, response) 

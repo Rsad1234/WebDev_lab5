@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    {{>header}}
+</head>
+
+<body class="container">
+<h1 class="label-info">{{PageTitle}}</h1>
+{{#entries}}
+    <div class="panel panel-default">
+          <div class="panel-heading">
+              {{guestbookEntryField}}
+          </div>
+          <div class="panel-body">
+              {{title}}
+          </div>
+          <div class="panel-body">
+              {{content}}
+          </div>
+          <div class="panel-body">
+              {{published}}
+          </div>
+          <div class="panel-body">
+              {{id}}
+          </div>                              
+     </div>
+{{/entries}}
+</body>
+
+</html>
